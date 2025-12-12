@@ -15,22 +15,22 @@ graph TB
         end
 
         subgraph "Load Balancing"
-            ALB[Application Load Balancer<br/>Port 443/80]
+            ALB[Application Load Balancer]
         end
 
         subgraph "Container Orchestration - ECS Cluster"
-            ECS_SERVICE[ECS Service<br/>Auto Scaling]
+            ECS_SERVICE[ECS Service<br/>customer-workbench-backend<br/>Auto Scaling]
             TASK1[Task: Spring Boot<br/>Container 1]
             TASK2[Task: Spring Boot<br/>Container 2]
             TASK3[Task: Spring Boot<br/>Container N]
         end
 
         subgraph "Container Registry"
-            ECR[ECR Repository<br/>customer-workbench-backend]
+            ECR[ECR Repository<br/>]
         end
 
         subgraph "Database"
-            RDS[(RDS PostgreSQL<br/>Multi-AZ)]
+            RDS[(RDS PostgreSQL)]
         end
 
         subgraph "Observability Stack - ECS"
