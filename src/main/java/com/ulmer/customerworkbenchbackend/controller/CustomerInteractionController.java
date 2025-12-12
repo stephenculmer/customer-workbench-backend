@@ -49,8 +49,8 @@ public class CustomerInteractionController {
   }
 
   @PostMapping(value = "/search", consumes =  MediaType.APPLICATION_JSON_VALUE)
-  public Page<CustomerInteraction> getCustomerInteractions(@RequestBody CustomerInteractionRequest request) {
-    return customerInteractionService.searchCustomerInteractions(
+  public CustomerInteractionSearchResponse getCustomerInteractions(@RequestBody CustomerInteractionRequest request) {
+    Page<CustomerInteraction> page = customerInteractionService.searchCustomerInteractions(
       request.getCustomerId(),
       request.getInteractionType(),
       request.getTimestampStart(),
@@ -58,5 +58,11 @@ public class CustomerInteractionController {
       request.getPageNumber(),
       request.getPageSize()
     );
+
+    CustomerInteractionSearchResponse searchResponse = new CustomerInteractionSearchResponse();
+    searchResponse.setContent(page.getContent());
+    searchResponse.setTotalElements(page.getTotalElements());
+
+    return searchResponse;
   }
 }
