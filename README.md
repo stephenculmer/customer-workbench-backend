@@ -14,14 +14,13 @@ graph TB
     end
 
     subgraph "Backend Layer - Spring Boot"
-        B[API Gateway<br/>Port 8080]
-        C[CustomerInteractionController]
-        D[CustomerInteractionService]
-        E[CustomerInteractionRepository<br/>Spring Data JPA]
+        B[CustomerInteractionController]
+        C[CustomerInteractionService]
+        D[CustomerInteractionRepository<br/>Spring Data JPA]
     end
 
     subgraph "Data Layer"
-        F[(PostgreSQL Database<br/>Port 5432)]
+        F[(PostgreSQL Database)]
         G[customer_interaction table]
     end
 
@@ -35,13 +34,11 @@ graph TB
     H -->|multipart/form-data| A2
     I -->|application/json| A2
 
-    B --> C
     C --> D
     D --> E
     E -->|JPA/Hibernate| F
     F --> G
 
-    C -->|CustomerInteractionSearchResponse| B
     B -->|JSON Response| A3
 
     style A fill:#42b883,stroke:#35495e,stroke-width:2px,color:#fff
