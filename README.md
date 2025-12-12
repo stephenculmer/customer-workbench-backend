@@ -35,6 +35,7 @@ graph TB
     I -->|application/json| A2
 
     B --> C
+    C --> D
     D -->|JPA/Hibernate| F
     F --> G
 
