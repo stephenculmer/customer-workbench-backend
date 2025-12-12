@@ -34,9 +34,8 @@ graph TB
     H -->|multipart/form-data| A2
     I -->|application/json| A2
 
-    C --> D
-    D --> E
-    E -->|JPA/Hibernate| F
+    B --> C
+    D -->|JPA/Hibernate| F
     F --> G
 
     B -->|JSON Response| A3
