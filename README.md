@@ -58,24 +58,6 @@ graph TB
 | **Repository Layer** | Spring Data JPA, Hibernate | Database abstraction and ORM |
 | **PostgreSQL** | PostgreSQL 16 | Persistent data storage |
 
-### API Flow
-
-1. **CSV Upload Flow**:
-   ```
-   User → Vue.js → POST /customer-interaction/upload → Controller → Service (CSV Parser) → Repository → PostgreSQL
-   ```
-
-2. **Search Flow**:
-   ```
-   User → Vue.js → POST /customer-interaction/search → Controller → Service → Repository → PostgreSQL
-   PostgreSQL → Repository → Service → Controller → CustomerInteractionSearchResponse → Vue.js → User
-   ```
-
-3. **Data Persistence**:
-   ```
-   CSV/JSON → Spring Boot → Hibernate → PostgreSQL (customer_interaction table)
-   ```
-
 ## Prerequisites
 
 - **Java 21** or higher
